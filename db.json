@@ -1,0 +1,46 @@
+{
+  "glempings": [
+    {
+      "id": 1,
+      "picture": "https://enterlatvia.com/assets/media/pictures/21181/event_images/1080_699__c_5ddc5fbd0e8e1.jpg",
+      "title": "Glamping Tērvete - Namiņš kokā",
+      "description": "Namiņš Kokā atrodas vairākus metrus virs zemes, zem tā ir plaša terase, kur iespējams baudīt maltīti pie liela pusdienu galda. Pats namiņš ir pilnībā aprīkots ar visu nepieciešamo,lai varētu izbaudīt nesteidzīgas un mierīgas brīvdienas pie dabas. Tajā atrodas liela guļamzona ar skatu uz ezeru un mežu, izvelkamais dīvāns, virtuves zona ar ledusskapi, tējkannu, elektrisko pannu, traukiem, galda piederumiem. Nakšņot iespējams līdz 4 viesiem. Maziem bērniem pieejama saliekamā zīdaiņu gultiņa. Namiņam Kokā labiekārtotas labierīcības ar dušu atrodas netālu esošā nelielā ēkā. Iespējams izmantot grilu."
+    },
+    {
+      "id": 2,
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjcSD3PzufvUBp430yiKejaBCaQiLwNv6W6tU0cMszEZ2bRv1MiItfBrFpEbyXQRm52A8&usqp=CAU",
+      "title": "Glamping Tērvete - Namiņš kalnā",
+      "description": "Namiņš kalnā ir kā labiekārtots viesnīcas numuriņš priežu mežā. Viesi no namiņa lielā loga, kā arī no āra terases var baudīt pasakainu skatu uz Indrānu ūdenskrātuvi. Namiņā atrodas divguļamā gulta, neliela virtuves zona ar ledusskapi, tējkannu, mikroviļņu krāsni, traukiem, galda piederumiem, ēdamgalds, privātas labierīcības ar dušu. Namiņā kalnā iespējams palikt līdz 3 viesiem. Iespējama viena papildgulta vai zīdaiņu saliekamā gultiņa. Ārā uz terases iespējams pagatavot maltīti uz grila."
+    },
+    {
+      "id": 3,
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxB2gvm06BJ-Z1MQWj5EkBnHQ245xtpiWXFB-_lF1aDy12UBKCL3kQUUswNb0072X9CZk&usqp=CAU",
+      "title": "Glamping Tērvete - Ezera namiņš",
+      "description": "Namiņš Kokā atrodas vairākus metrus virs zemes, zem tā ir plaša terase, kur iespējams baudīt maltīti pie liela pusdienu galda. Pats namiņš ir pilnībā aprīkots ar visu nepieciešamo,lai varētu izbaudīt nesteidzīgas un mierīgas brīvdienas pie dabas. Tajā atrodas liela guļamzona ar skatu uz ezeru un mežu, izvelkamais dīvāns, virtuves zona ar ledusskapi, tējkannu, elektrisko pannu, traukiem, galda piederumiem. Nakšņot iespējams līdz 4 viesiem. Maziem bērniem pieejama saliekamā zīdaiņu gultiņa. Namiņam Kokā labiekārtotas labierīcības ar dušu atrodas netālu esošā nelielā ēkā. Iespējams izmantot grilu."
+    },
+    {
+      "id": 4,
+      "picture": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/401302293.jpg?k=3388afd9c7c580a760142872d374155a50a263b5f81aeecd6153770c4abd4a40&o=&hp=1",
+      "title": "Otrā krastā",
+      "description": "Namiņš Kokā atrodas vairākus metrus virs zemes, zem tā ir plaša terase, kur iespējams baudīt maltīti pie liela pusdienu galda. Pats namiņš ir pilnībā aprīkots ar visu nepieciešamo,lai varētu izbaudīt nesteidzīgas un mierīgas brīvdienas pie dabas. Tajā atrodas liela guļamzona ar skatu uz ezeru un mežu, izvelkamais dīvāns, virtuves zona ar ledusskapi, tējkannu, elektrisko pannu, traukiem, galda piederumiem. Nakšņot iespējams līdz 4 viesiem. Maziem bērniem pieejama saliekamā zīdaiņu gultiņa. Namiņam Kokā labiekārtotas labierīcības ar dušu atrodas netālu esošā nelielā ēkā. Iespējams izmantot grilu."
+    },
+    {
+      "id": 5,
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnsAQ5M3WhORvoUwxZAY4ZCUsPRQpw6ynRQw&usqp=CAU",
+      "title": "DiDille",
+      "description": "Četrvietīgā divu līmeņu kupola telts atrodas pie Draudzesskolas ezera bērzu birzī ar skatu uz pļavu un ezeru. Tā ir pilnībā labiekārtota un izmantojama visu gadu, lai atpūta dabā jums nesagādātu raizes. Tajā ir duša, vanna, WC, siltais un aukstais ūdens, elektrība, kamīns, apkure, kondicionieris, WiFi, virtuves zona un brīnišķīgs skats. Pie kupola ir grils ar piederumiem, privāts kubls (par papildus samaksu - 80 eur), iespēja izīrēt SUP, laivu, velo - 15 eur. "
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "avatar": "https://mir-s3-cdn-cf.behance.net/project_modules/disp/ce54bf11889067.562541ef7cde4.png",
+      "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "id": 2,
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGwSTvN7cBwsaA0izTzKk37pmjMrCU6pcm9Q&usqp=CAU",
+      "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
+  ]
+}

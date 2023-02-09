@@ -1,0 +1,134 @@
+
+.article__container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.article__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+.article__main {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.article__image {
+  width: 300px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12);
+}
+
+.article__title {
+  font-size: 2.9rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.article__text {
+  width: 50%;
+}
+
+.article__description {
+  color: rgb(63, 65, 66);
+  padding: 20px;
+}
+
+/* --------------comments------------- */
+
+.comments__container {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.comments__heading {
+  font-size: 1.5rem;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 60%;
+}
+
+.one__comment {
+  background-color: rgba(236, 249, 239, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  gap: 40px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12);
+}
+
+.comment__picture {
+  max-width: 100px;
+  border-radius: 50%;
+}
+
+.comment__form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+/* ---------------NewPost---------------- */
+
+.newPost__container {
+  margin-top: 70px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newPost__heading {
+  font-size: 1.5rem;
+  padding: 20px;
+}
+
+.newPost__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.newPost__label,
+.comment__label {
+  display: flex;
+  gap: 20px;
+  font-size: 1.1rem;
+}
+
+.newPost__input,
+.comment__input {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.newPost__input--textarea {
+  width: 300px;
+  height: 100px;
+}
+
+.anchor {
+  text-decoration: none;
+  color: rgb(237, 188, 96);
+}
+
+.postsInteraction__container {
+  display: flex;
+}
