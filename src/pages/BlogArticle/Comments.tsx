@@ -12,16 +12,19 @@ import {
 
 type Comment = {
   id: number,
-  avatar: string,
-  comment: string
+  image: string,
+  comment: string,
+  author: string,
+  post_id: number
 }
 
 export const Comments = () => {
   const [comment, setComment] = useState('')
-  const [avatar, setAvatar] = useState('')
+  const [image, setImage] = useState('')
+  const [author, setAuthor] = useState('')
 
   const getComments = async () => {
-    const { data } = await axios.get<Comment[]>(`http://localhost:3000/comments/`)
+    const { data } = await axios.get<Comment[]>(`http://localhost:3004/comments`)
 
     return data
   }
@@ -32,15 +35,17 @@ export const Comments = () => {
   })
 
  const handleAddCommentClick = () => {
-    console.log({ comment, avatar })
-    const text = { comment, avatar }
+    console.log({ comment, image, author })
+    const text = { comment, image, author }
     mutate(text)
     setComment('')
-    setAvatar('')
+    setImage('')
+    setAuthor('')
   }
 
+
   const addComment = (text: any) => {
-    return axios.post('http://localhost:3000/comments', text)
+    return axios.post('http://localhost:3004/comments', text)
   }
 
   const useAddComment = () => {
@@ -55,6 +60,15 @@ export const Comments = () => {
 
   const { mutate } = useAddComment()
 
+  const handleDeleteComment = async (id:number) => {
+    try {
+      await axios.delete(`http://localhost:3004/comments/${id}`)
+      window.location.reload()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
 
   if (isLoading) {
     return <span>Loading...</span>
@@ -62,6 +76,7 @@ export const Comments = () => {
   if (!data) {
     throw Error('Ooops, something went wrong :(')
   }
+
 
 
   return (
@@ -76,14 +91,29 @@ export const Comments = () => {
                 className="one__comment">
                 <div className="comment__profile">
                   <img 
-                    src={comment.avatar}
+                    src={comment.image}
                     className='comment__picture'>
                   </img>
                 </div>
-                <div className="comment__text">
-                  <p>
-                    {comment.comment}
-                  </p>
+                <div>
+                  <div className="comment__text">
+                    <p className="comment__author">
+                      {comment.author}
+                    </p>
+                  </div>
+                  <div className="comment__text">
+                    <p>
+                      {comment.comment}
+                    </p>
+                  </div>
+                </div>
+                <div className="comment__button">
+                  <button 
+                  className="button"
+                  onClick={() => handleDeleteComment(comment.id)}
+                  >
+                    Dzēst komentāru
+                  </button>
                 </div>
               </div>
             )
@@ -99,10 +129,25 @@ export const Comments = () => {
               placeholder='https://...'
               className='comment__input'
               type='text'
-              value={avatar}
-              onChange = {(e) => setAvatar(e.target.value)}>
+              value={image}
+              name="image"
+              required
+              onChange = {(e) => setImage(e.target.value)}>
             </input>
-          </label>  
+          </label>
+          <label
+            className='comment__label'>
+            Autors:
+            <input
+              placeholder='https://...'
+              className='comment__input'
+              type='text'
+              value={author}
+              name="author"
+              required
+              onChange = {(e) => setAuthor(e.target.value)}>
+            </input>
+          </label>   
           <label
             className='comment__label'>
             Pievienot komentāru:
@@ -111,6 +156,8 @@ export const Comments = () => {
               className='comment__input'
               type='text'
               value={comment}
+              name="comment"
+              required
               onChange = {(e) => setComment(e.target.value)}>
             </input>
           </label>

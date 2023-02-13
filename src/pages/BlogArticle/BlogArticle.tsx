@@ -1,6 +1,6 @@
 import './BlogArticle.css'
 import axios from "axios"
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import {
   useQuery,
@@ -14,20 +14,21 @@ import { EditPost } from './EditPost'
 
 type Article = {
   id: number,
-  picture: string,
+  image: string,
   title: string,
-  description: string
+  content: string
 }
 
 export const BlogArticle = () => {
   const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [picture, setPicture] = useState('')
-
+  const [content, setContent] = useState('')
+  const [image, setImage] = useState('')
+  const queryClient = useQueryClient()
   const { id } = useParams()
+  const navigate = useNavigate()
   
   const getArticle = async () => {
-    const { data } = await axios.get<Article>(`http://localhost:3000/glempings/${id}`)
+    const { data } = await axios.get<Article[]>(`http://localhost:3004/posts/${id}`)
 
     return data
   }
@@ -38,21 +39,22 @@ export const BlogArticle = () => {
   })
 
   const handleAddPostClick = () => {
-    console.log({ title, description, picture})
-    const post = { title, description, picture }
+    console.log({ title, content, image})
+    const post = { title, content, image }
     mutate(post)
     setTitle('')
-    setDescription('')
-    setPicture('')
+    setContent('')
+    setImage('')
+    navigate("/blogs")
+    window.location.reload()
   }
 
   const addPost = (post: any) => {
-    return axios.post('http://localhost:3000/glempings', post)
+    return axios.post('http://localhost:3004/posts', post)
   }
 
   const useAddPost = () => {
-    const queryClient = useQueryClient()
-
+    
     return useMutation(addPost, {
       onSuccess: () => {
         queryClient.invalidateQueries(['blog'])
@@ -61,6 +63,16 @@ export const BlogArticle = () => {
   }
 
   const { mutate } = useAddPost()
+
+  const handleDeletePost = async (id:number) => {
+    try {
+      await axios.delete(`http://localhost:3004/posts/${id}`)
+      window.location.reload()
+      navigate("/blogs")
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   if (isLoading) {
     return <span>Loading...</span>
@@ -79,28 +91,40 @@ export const BlogArticle = () => {
             type='button'>
               <a href='#add' className='anchor'>Pievienot rakstu</a> 
           </button>
-          <button 
+          {/* <button 
             className='button'>
               <a href='#edit' className='anchor'>Labot rakstu</a>
-          </button>
+          </button> */}
         </div>
         <div className='article__main'>
-          <div className="article__picture">
-            <img 
-              src={data.picture}
-              className="article__image">
-              </img>
-          </div>
-          <div className='article__text'>
-            <h1 
-              className="article__title">
-                {data.title}
-            </h1>
-            <div 
-              className="article__description">
-                {data.description}
-            </div>
-          </div>
+          {data.map((article) => {
+            return (
+              <>
+                <div className="article__picture">
+                  <img 
+                    src={article.image}
+                    className="article__image">
+                    </img>
+                </div>
+                <div className='article__text'>
+                  <h1 
+                    className="article__title">
+                      {article.title}
+                  </h1>
+                  <div 
+                    className="article__description">
+                      {article.content}
+                  </div>
+                </div>
+                <button 
+                  className="button"
+                  onClick={() => handleDeletePost(article.id)}
+                  >
+                    Dzēst rakstu
+                </button>
+              </>
+            )
+          })}
         </div>
       </div>
 
@@ -122,6 +146,8 @@ export const BlogArticle = () => {
                 className='newPost__input'
                 type='text'
                 value={title}
+                name="title"
+                required
                 onChange = {(e) => setTitle(e.target.value)}>
               </input>
             </label>
@@ -129,13 +155,14 @@ export const BlogArticle = () => {
               className='newPost__label'>
               Raksts:
               <textarea
-                name="postContent" 
                 rows={4} 
                 cols={35}
                 placeholder='apraksts...'
                 className='newPost__input'
-                value={description}
-                onChange = {(e) => setDescription(e.target.value)}>
+                value={content}
+                name="content"
+                required
+                onChange = {(e) => setContent(e.target.value)}>
               </textarea>
             </label>
             <label
@@ -145,8 +172,10 @@ export const BlogArticle = () => {
                 placeholder='https://...'
                 className='newPost__input'
                 type='text'
-                value={picture}
-                onChange = {(e) => setPicture(e.target.value)}>
+                value={image}
+                name="image"
+                required
+                onChange = {(e) => setImage(e.target.value)}>
               </input>
             </label>
             <button 
@@ -158,7 +187,7 @@ export const BlogArticle = () => {
             </button>
           </form>
         </div>
-        <EditPost />
+        {/* <EditPost /> */}
       </div>
 
       <footer className="footer">

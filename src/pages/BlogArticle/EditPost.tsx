@@ -7,20 +7,21 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 export const EditPost = () => {
   const { id } = useParams()
   const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [picture, setPicture] = useState('')
+  const [content, setContent] = useState('')
+  const [image, setImage] = useState('')
 
   const handleEditPostClick = () => {
-    console.log({ title, description, picture})
-    const post = { title, description, picture }
+    console.log({ title, content, image})
+    const post = { title, content, image }
     mutate(post)
     setTitle('')
-    setDescription('')
-    setPicture('')
+    setContent('')
+    setImage('')
+    window.location.reload()
   }
 
   const editPost = (post: any) => {
-    return axios.put(`http://localhost:3000/glempings/${id}`, post)
+    return axios.put(`http://localhost:3004/posts/${id}`, post)
   }
 
   const useEditPost = () => {
@@ -51,6 +52,8 @@ export const EditPost = () => {
               className='newPost__input'
               type='text'
               value={title}
+              name="title"
+              required
               onChange = {(e) => setTitle(e.target.value)}
               >
             </input>
@@ -59,12 +62,13 @@ export const EditPost = () => {
             className='newPost__label'>
             Raksts:
             <textarea
-              name="postContent" 
               rows={4} 
               cols={35}
               className='newPost__input'
-              value={description}
-              onChange = {(e) => setDescription(e.target.value)}
+              value={content}
+              name="content"
+              required
+              onChange = {(e) => setContent(e.target.value)}
               >
             </textarea>
           </label>
@@ -75,8 +79,10 @@ export const EditPost = () => {
               placeholder='https://...'
               className='newPost__input'
               type='text'
-              value={picture}
-              onChange = {(e) => setPicture(e.target.value)}
+              value={image}
+              name="image"
+              required
+              onChange = {(e) => setImage(e.target.value)}
               >
             </input>
           </label>

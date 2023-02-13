@@ -11,15 +11,15 @@ import './Blogs.css'
 
 type BlogCard = {
   id: number,
-  picture: string,
+  image: string,
   title: string
 }
 
 const getAllBlogs = async () => {
-  const { data } = await axios.get<BlogCard[]>('http://localhost:3000/glempings')
+  const { data } = await axios.get<BlogCard[]>('http://localhost:3004/posts')
 
   return data
-}
+} 
 
 export const Blogs = () => {
   const {data, isLoading} = useQuery({
@@ -52,7 +52,7 @@ export const Blogs = () => {
                     key={card.id}>
                     <div 
                       className="blogs__card"
-                      style={{backgroundImage: `url(${card.picture})`}}
+                      style={{backgroundImage: `url(${card.image})`}}
                       >
                       <h3 className="blogs__card--title">
                         {card.title}
