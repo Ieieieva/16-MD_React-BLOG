@@ -1,11 +1,5 @@
 import { Link, Outlet } from "react-router-dom"
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import './Blogs.css'
 
@@ -17,7 +11,6 @@ type BlogCard = {
 
 const getAllBlogs = async () => {
   const { data } = await axios.get<BlogCard[]>('http://localhost:3004/posts')
-
   return data
 } 
 
@@ -34,8 +27,6 @@ export const Blogs = () => {
   if (!data) {
     throw Error('Ooops, something went wrong :(')
   }
-
-  console.log(data)
 
   return (
     <div className="blogs__page">

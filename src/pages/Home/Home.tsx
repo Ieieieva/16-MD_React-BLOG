@@ -4,7 +4,7 @@ export const Home = () => {
   return (
     <div className='home__container'>
       <h1 className="home__title">
-        Latvijas skaistie glampingi
+        Latvijas skaistie namiņi
       </h1>
       <footer className="footer">
         <h5 className="footer__text">
@@ -23,6 +23,5 @@ export const Home = () => {
         </h5>
       </footer>
     </div>
-    
   )
 }

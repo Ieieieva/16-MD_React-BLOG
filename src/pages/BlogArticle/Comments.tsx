@@ -1,12 +1,9 @@
-import { useParams } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
 import {
   useQuery,
   useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
+  useQueryClient
 } from '@tanstack/react-query'
 
 
@@ -25,7 +22,6 @@ export const Comments = () => {
 
   const getComments = async () => {
     const { data } = await axios.get<Comment[]>(`http://localhost:3004/comments`)
-
     return data
   }
 
@@ -42,7 +38,6 @@ export const Comments = () => {
     setImage('')
     setAuthor('')
   }
-
 
   const addComment = (text: any) => {
     return axios.post('http://localhost:3004/comments', text)
@@ -69,14 +64,12 @@ export const Comments = () => {
     }
   }
 
-
   if (isLoading) {
     return <span>Loading...</span>
   }
   if (!data) {
     throw Error('Ooops, something went wrong :(')
   }
-
 
 
   return (
@@ -139,7 +132,7 @@ export const Comments = () => {
             className='comment__label'>
             Autors:
             <input
-              placeholder='https://...'
+              placeholder='vārds'
               className='comment__input'
               type='text'
               value={author}
@@ -170,6 +163,5 @@ export const Comments = () => {
         </form>
       </div>
     </>
-    
   )
 }

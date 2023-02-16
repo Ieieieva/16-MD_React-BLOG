@@ -5,12 +5,9 @@ import { useState } from 'react'
 import {
   useQuery,
   useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
+  useQueryClient
 } from '@tanstack/react-query'
 import { Comments } from './Comments'
-import { EditPost } from './EditPost'
 
 type Article = {
   id: number,
@@ -29,7 +26,6 @@ export const BlogArticle = () => {
   
   const getArticle = async () => {
     const { data } = await axios.get<Article[]>(`http://localhost:3004/posts/${id}`)
-
     return data
   }
 
@@ -54,7 +50,6 @@ export const BlogArticle = () => {
   }
 
   const useAddPost = () => {
-    
     return useMutation(addPost, {
       onSuccess: () => {
         queryClient.invalidateQueries(['blog'])
@@ -91,10 +86,6 @@ export const BlogArticle = () => {
             type='button'>
               <a href='#add' className='anchor'>Pievienot rakstu</a> 
           </button>
-          {/* <button 
-            className='button'>
-              <a href='#edit' className='anchor'>Labot rakstu</a>
-          </button> */}
         </div>
         <div className='article__main'>
           {data.map((article) => {
@@ -187,7 +178,6 @@ export const BlogArticle = () => {
             </button>
           </form>
         </div>
-        {/* <EditPost /> */}
       </div>
 
       <footer className="footer">
